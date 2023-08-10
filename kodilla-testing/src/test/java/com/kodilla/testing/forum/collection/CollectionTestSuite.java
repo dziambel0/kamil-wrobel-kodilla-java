@@ -41,11 +41,14 @@ public class CollectionTestSuite {
         OddNumbersExterminator sortowanie = new OddNumbersExterminator();
         List<Integer> listaLiczbParzystych = sortowanie.exterminate(numbers);
         //Then
-        if(listaLiczbParzystych.size() == 0){
-            System.out.println("The list is empty");
-        }else{
-            System.out.println("ERROR - the list is not empty");
-        }
+
+        Assertions.assertEquals(listaLiczbParzystych.size(), 0);
+
+        //if(listaLiczbParzystych.size() == 0){
+        //    System.out.println("The list is empty");
+        //}else{
+        //    System.out.println("ERROR - the list is not empty");
+        //}
     }
 
     @DisplayName("when we send a not empty list to the exterminate method, " +
@@ -53,7 +56,7 @@ public class CollectionTestSuite {
     @Test
     void testOddNumbersExterminatorNormalList(){
         //Given
-        boolean parzyste = false;
+        int parzyste = 0;
         List<Integer> numbers = new ArrayList<>();
         for(int i=0; i<20; i++) {
             numbers.add(i);
@@ -64,15 +67,16 @@ public class CollectionTestSuite {
         //Then
         for (Integer liczbyWTablicy: listaLiczbParzystych) {
             if(liczbyWTablicy%2 == 0){
-                parzyste = true;
-            }else {
-                parzyste = false;
+                parzyste++;
             }
         }
-        if(parzyste == true){
-            System.out.println("On the list are only even numbers");
-        }else {
-            System.out.println("ERROR - On the list are not only even numbers");
-        }
+
+        Assertions.assertEquals(parzyste, listaLiczbParzystych.size());
+
+        //if(parzyste == listaLiczbParzystych.size()){
+        //    System.out.println("On the list are only even numbers");
+        //}else {
+        //    System.out.println("ERROR - On the list are not only even numbers");
+        //}
     }
 }
