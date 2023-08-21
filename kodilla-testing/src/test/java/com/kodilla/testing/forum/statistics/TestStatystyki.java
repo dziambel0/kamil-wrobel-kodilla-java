@@ -25,6 +25,24 @@ class TestStatystyki {
 
     @Mock
     private Statistics statisticsMock;
+
+    @Test
+    void test(){
+
+        Statystyki statystyki = new Statystyki();
+
+        statystyki.setLiczbaUrzytkownikow(10);
+        statystyki.setLiczbaKomentarzy(100);
+        statystyki.setLiczbaPostow(50);
+
+        statystyki.calculateAdvStatistics(statisticsMock);
+
+        statystyki.showStatistics();
+
+
+
+    }
+
     @Test
     void testCalculateAdvStatistics0Posts() {
         //Given
