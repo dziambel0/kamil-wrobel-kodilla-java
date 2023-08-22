@@ -1,3 +1,4 @@
+
 package com.kodilla.testing.forum.statistics;
 
 public class Statystyki {
@@ -33,21 +34,21 @@ public class Statystyki {
     }
 
     public void calculateAdvStatistics(Statistics statistics){
-    liczbaKomentarzy = statistics.commentsCount();
-    liczbaUrzytkownikow = statistics.usersNames().size();
-    liczbaPostow = statistics.postsCount();
-    if (liczbaUrzytkownikow == 0){
-        sredniaLiczbaKomentarzyNaUrzytkownika = 0;
-        sredniaLiczbaPostowNaUrzytkownika = 0;
-    }else {
-        sredniaLiczbaKomentarzyNaUrzytkownika = liczbaKomentarzy / liczbaUrzytkownikow;
-        sredniaLiczbaPostowNaUrzytkownika = liczbaPostow / liczbaUrzytkownikow;
-    }
-    if (liczbaPostow == 0){
-        sredniaLiczbaKomentarzyNaPost = 0;
-    }else {
-        sredniaLiczbaKomentarzyNaPost = liczbaKomentarzy / liczbaPostow;
-    }
+        liczbaKomentarzy = statistics.commentsCount();
+        liczbaUrzytkownikow = statistics.usersNames().size();
+        liczbaPostow = statistics.postsCount();
+        if (liczbaUrzytkownikow == 0){
+            sredniaLiczbaKomentarzyNaUrzytkownika = 0;
+            sredniaLiczbaPostowNaUrzytkownika = 0;
+        }else {
+            sredniaLiczbaKomentarzyNaUrzytkownika = liczbaKomentarzy / liczbaUrzytkownikow;
+            sredniaLiczbaPostowNaUrzytkownika = liczbaPostow / liczbaUrzytkownikow;
+        }
+        if (liczbaPostow == 0){
+            sredniaLiczbaKomentarzyNaPost = 0;
+        }else {
+            sredniaLiczbaKomentarzyNaPost = liczbaKomentarzy / liczbaPostow;
+        }
     }
 
     public void showStatistics(){

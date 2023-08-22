@@ -1,3 +1,4 @@
+
 package com.kodilla.testing.forum.statistics;
 
 import org.junit.jupiter.api.*;
