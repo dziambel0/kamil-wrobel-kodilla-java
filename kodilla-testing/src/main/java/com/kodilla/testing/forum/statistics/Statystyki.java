@@ -1,34 +1,22 @@
 package com.kodilla.testing.forum.statistics;
 
 public class Statystyki {
-    private int liczbaUrzytkownikow;
-    private int liczbaPostow;
-    private int liczbaKomentarzy;
+    private double liczbaUrzytkownikow;
+    private double liczbaPostow;
+    private double liczbaKomentarzy;
     private double sredniaLiczbaPostowNaUrzytkownika;
     private double sredniaLiczbaKomentarzyNaUrzytkownika;
     private double sredniaLiczbaKomentarzyNaPost;
 
-    public void setLiczbaUrzytkownikow(int liczbaUrzytkownikow) {
-        this.liczbaUrzytkownikow = liczbaUrzytkownikow;
-    }
-
-    public void setLiczbaPostow(int liczbaPostow) {
-        this.liczbaPostow = liczbaPostow;
-    }
-
-    public void setLiczbaKomentarzy(int liczbaKomentarzy) {
-        this.liczbaKomentarzy = liczbaKomentarzy;
-    }
-
-    public int getLiczbaUrzytkownikow() {
+    public double getLiczbaUrzytkownikow() {
         return liczbaUrzytkownikow;
     }
 
-    public int getLiczbaPostow() {
+    public double getLiczbaPostow() {
         return liczbaPostow;
     }
 
-    public int getLiczbaKomentarzy() {
+    public double getLiczbaKomentarzy() {
         return liczbaKomentarzy;
     }
 
@@ -48,9 +36,18 @@ public class Statystyki {
     liczbaKomentarzy = statistics.commentsCount();
     liczbaUrzytkownikow = statistics.usersNames().size();
     liczbaPostow = statistics.postsCount();
-    sredniaLiczbaKomentarzyNaUrzytkownika = liczbaKomentarzy / liczbaUrzytkownikow;
-    sredniaLiczbaPostowNaUrzytkownika = liczbaPostow / liczbaUrzytkownikow;
-    sredniaLiczbaKomentarzyNaPost = liczbaKomentarzy / liczbaPostow;
+    if (liczbaUrzytkownikow == 0){
+        sredniaLiczbaKomentarzyNaUrzytkownika = 0;
+        sredniaLiczbaPostowNaUrzytkownika = 0;
+    }else {
+        sredniaLiczbaKomentarzyNaUrzytkownika = liczbaKomentarzy / liczbaUrzytkownikow;
+        sredniaLiczbaPostowNaUrzytkownika = liczbaPostow / liczbaUrzytkownikow;
+    }
+    if (liczbaPostow == 0){
+        sredniaLiczbaKomentarzyNaPost = 0;
+    }else {
+        sredniaLiczbaKomentarzyNaPost = liczbaKomentarzy / liczbaPostow;
+    }
     }
 
     public void showStatistics(){
