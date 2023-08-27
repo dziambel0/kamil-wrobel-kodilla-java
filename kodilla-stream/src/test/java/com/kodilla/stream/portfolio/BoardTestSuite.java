@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -164,10 +165,11 @@ class BoardTestSuite {
                 .map(Task::getCreated)
                 .count();
 
-        long days = (int) project.getTaskLists().stream()
+        long days = project.getTaskLists().stream()
                 .filter(inProgressTask::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> Duration.between(t.getCreated(), LocalDate.now()))
+                //.map(t -> Duration.between(t.getCreated(), LocalDate.now()))
+                //.map(t -> ChronoUnit.SECONDS.between(t.getCreated(), LocalDate.now()))
                 //.map(t -> t.getCreated().getDayOfMonth() - LocalDate.now().getDayOfMonth())
                 .count();
 
@@ -175,7 +177,7 @@ class BoardTestSuite {
         System.out.println(longTasks);
 
         //Then
-
+        //ChronoUnit.SECONDS.between
 
     }
 }
