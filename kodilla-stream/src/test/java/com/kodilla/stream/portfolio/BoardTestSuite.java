@@ -168,16 +168,11 @@ class BoardTestSuite {
         long days = project.getTaskLists().stream()
                 .filter(inProgressTask::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                //.map(t -> Duration.between(t.getCreated(), LocalDate.now()))
-                //.map(t -> ChronoUnit.SECONDS.between(t.getCreated(), LocalDate.now()))
-                //.map(t -> t.getCreated().getDayOfMonth() - LocalDate.now().getDayOfMonth())
-                .count();
-
-        System.out.println(days);
-        System.out.println(longTasks);
+                .mapToLong(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
+                .sum();
 
         //Then
-        //ChronoUnit.SECONDS.between
+        Assertions.assertEquals(days/longTasks, 10);
 
     }
 }
