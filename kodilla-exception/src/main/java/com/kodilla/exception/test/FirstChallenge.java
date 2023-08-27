@@ -2,15 +2,16 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
-    public double divide(double a, double b) throws ArithmeticException {
-
+    public double divide(double a, double b) {
+        double d=0;
         try {
             return a / b;
         } catch (ArithmeticException e){
-           throw  new ArithmeticException ("Nie dzieli sie przez 0");
+            System.out.println("Nie dzieli sie przez 0");
         } finally {
             System.out.println("Działanie zostalo wykonane");
         }
+        return d;
     }
 
     /**
@@ -19,7 +20,7 @@ public class FirstChallenge {
      */
     public static void main(String[] args) {
         FirstChallenge firstChallenge = new FirstChallenge();
-        double result = firstChallenge.divide(3, 0);
+        double result = firstChallenge.divide(10, 0);
 
         System.out.println(result);
     }
