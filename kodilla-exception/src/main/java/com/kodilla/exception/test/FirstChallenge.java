@@ -2,11 +2,11 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
-    public double divide(double a, double b) {
+    public double divide(int a, int b) {
         double d=0;
         try {
             return a / b;
-        } catch (ArithmeticException e){
+        } catch (RuntimeException e){
             System.out.println("Nie dzieli sie przez 0");
         } finally {
             System.out.println("Działanie zostalo wykonane");
