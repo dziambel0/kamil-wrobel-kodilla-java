@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 class LibraryTestSuite {
 
     @Test
@@ -30,5 +33,15 @@ class LibraryTestSuite {
 
         //Then
         //do nothing
+    }
+    @Test
+    void testContext(){
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        //When & Then
+        System.out.println("===== Beans List ===== >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< ===== Beans List =====");
     }
 }
