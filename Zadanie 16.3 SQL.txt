@@ -1,0 +1,51 @@
+CREATE TABLE ISSUESLISTS(
+    ID SERIAL PRIMARY KEY ,
+    NAME VARCHAR(100)
+);
+
+SELECT  FROM ISSUESLISTS;
+
+INSERT INTO ISSUESLISTS(NAME) VALUES ('To Do');
+INSERT INTO ISSUESLISTS(NAME) VALUES ('In Progress');
+INSERT INTO ISSUESLISTS(NAME) VALUES ('Done');
+
+COMMIT ;
+
+CREATE TABLE ISSUES(
+    ID SERIAL PRIMARY KEY ,
+    ISSUESLIST_ID BIGINT UNSIGNED NOT NULL ,
+    SUMMARY VARCHAR(100),
+    DESCRIPTION VARCHAR(250),
+    USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL ,
+    FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS(ID),
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES users(ID)
+);
+
+SELECT   FROM  ISSUES;
+
+COMMIT ;
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) VALUES
+(1, 'Malowanie salonu', 'Malowanie ścian w salonie na kolor niebieski.', 1),
+(1, 'Prace ogrodowe', 'Koszenie trawy, przycinanie krzewów i sadzenie kwiatów w ogrodzie.', 2),
+(1, 'Zakupy spożywcze', 'Zakupienie produktów spożywczych na cały tydzień.', 3),
+(1, 'Naprawa roweru', 'Naprawa przebitej opony w rowerze.', 4),
+(1, 'Przygotowanie prezentacji', 'Przygotowanie prezentacji na spotkanie biznesowe.', 5);
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) VALUES
+(2, 'Rozwinięcie projektu', 'Rozwinięcie projektu inżynieryjnego z klientem XYZ.', 6),
+(2, 'Analiza rynku', 'Analiza rynku w celu określenia nowych możliwości biznesowych.', 7),
+(2, 'Raporty finansowe', 'Przygotowanie raportów finansowych na koniec kwartału.', 8),
+(2, 'Aktualizacja oprogramowania', 'Aktualizacja oprogramowania serwera aplikacyjnego.', 9),
+(2, 'Przygotowanie kampanii marketingowej', 'Przygotowanie kampanii marketingowej na nadchodzący produkt.', 10);
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) VALUES
+(3, 'Wdrożenie nowej witryny internetowej', 'Wdrożenie nowej strony internetowej firmy.', 1),
+(3, 'Ostateczna weryfikacja produktu', 'Ostateczna weryfikacja i akceptacja produktu przed dostawą.', 2),
+(3, 'Zakończenie szkolenia pracowników', 'Zakończenie cyklu szkoleń pracowników w firmie.', 3),
+(3, 'Zatwierdzenie dokumentacji projektowej', 'Zatwierdzenie dokumentacji projektowej przez klienta.', 4),
+(3, 'Zamknięcie roku podatkowego', 'Zamknięcie księgowości i zakończenie roku podatkowego.', 5);
+
+COMMIT ;
+
+SELECT   FROM  ISSUES;
