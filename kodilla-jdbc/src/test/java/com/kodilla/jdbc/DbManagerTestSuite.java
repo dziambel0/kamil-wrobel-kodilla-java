@@ -83,3 +83,4 @@ public class DbManagerTestSuite {
         assertEquals(2, counter);
     }
 }
+
