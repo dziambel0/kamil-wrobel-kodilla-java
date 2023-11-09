@@ -5,6 +5,12 @@ import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Date;
+@NamedQuery(name = "Task.retrieveLongTasks", query = "FROM Task WHERE duration > 10")
+@NamedQuery(name = "Task.retrieveShortTasks", query = "FROM Task WHERE duration <= 10")
+@NamedNativeQuery(name = "Task.retrieveTasksWithEnoughTime",
+        query = "SELECT * FROM TASKS" + " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+        resultClass = Task.class)
+@NamedQuery(name = "Task.retrieveTest1", query = "FROM Task WHERE duration > :DURATION")
 @Entity
 @Table(name = "TASKS")
 public class Task {
