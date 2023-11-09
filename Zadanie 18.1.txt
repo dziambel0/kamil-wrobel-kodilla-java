@@ -1,0 +1,23 @@
+{
+"Nazwa samochodu":"Samochod osobowy",
+"Marka pojazdu":"Audi",
+"Fotele":[
+"Fotel1":{
+"material":"skora",
+"kolor":"zielony"
+},
+"Fotel2":{
+"material":"tkanina",
+"kolor":"czerwony"
+},
+"Fotel3":{
+"material":"len",
+"kolor":"czarny"
+},
+"Fotel4":{
+"material":"skaj",
+"kolor":"niebieski"
+},
+],
+"Pojemnosc silnika":2000
+}
