@@ -5,7 +5,7 @@ import org.springframework.lang.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedQuery(name = "Company.retriveFirstThreeLeters", query = "FROM Company WHERE SUBSTRING(name, 1, 3) = :NAME ")
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
